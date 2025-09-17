@@ -14,7 +14,8 @@ import java.util.Optional;
 // 3.Optional<T> opt3 = Optional.empty();           ---> Represent no value
 
 // example
-public class OptionalCreation {
+public class OptionalCreationMethods 
+{
 
     public static void main(String[] args) {
         Optional<String> opt1 = Optional.of("Java");

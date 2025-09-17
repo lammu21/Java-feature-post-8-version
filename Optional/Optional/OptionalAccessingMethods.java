@@ -1,3 +1,4 @@
+package Optional;
 // ---------Optional Accessing values methods------
 // 1.isPresent() -> Check if value Exists
 // 2. isEmpty() -> check if value is empty, Opposite to isPresent(java 11 +)
@@ -8,7 +9,7 @@
 
 import java.util.Optional;
 
-public class OptionalAccessingValues {
+public class OptionalAccessingMethods {
     public static void main(String[] args) {
 
         Optional<String> opt1 = Optional.of("Spring");
@@ -21,8 +22,8 @@ public class OptionalAccessingValues {
         {
             System.out.println("---isPresent() && get() method example ---\n"+opt1.get());
         }
-        //  ---orElse(defaultvalue)---
 
+        //  ---orElse(defaultvalue)---
         // Syntax : <T> value = opt.orElse(defaultvalue);
         // example:
 
