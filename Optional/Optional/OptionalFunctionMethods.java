@@ -19,20 +19,40 @@ import java.util.stream.Stream;
 public class OptionalFunctionMethods 
 {
     public static void main(String[] args) {
+
+// / 1. Concept
+
+// map()
+// 	•	Applies a function to the value inside the Optional.
+// 	•	Always wraps the result in another Optional.
+// 	•	If the function itself returns an Optional, then you end up with nested Optional<Optional<T>>.
+
+// flatMap()
+// 	•	Similar to map(), but flattens the result.
+// 	•	Used when the function already returns an Optional.
+// 	•	Prevents Optional<Optional<T>>.
         
     
     Optional<String> opt = Optional.of("java");
+    Optional<String> emptyopt = Optional.empty();
     // ------map--------
     //   Syn : opt.map(Function)
-    System.out.println(opt.map(String::toUpperCase));
+    // System.out.println(opt.map(String::toUpperCase));
+    System.out.println("-----map example-------");
+    Optional<Optional<Integer>> mapopt = opt.map(s ->Optional.of(s.length()));
+    System.out.println(mapopt);
+
 
     // -----flatMap-----
     //   Syn : opt.flatMap(Function)
+    System.out.println("-----flatMap example-------");
     System.out.println(opt.flatMap(s -> Optional.of(s.length())));
+
+
 
     // ----filter-------
     //   Syn:opt.filter(predicate)
-
+    System.out.println("-----filter example-------");
     System.out.println(opt.filter(s->s.startsWith("j")));
 
     System.out.println(opt.filter(s->s.startsWith("s")));
@@ -45,27 +65,33 @@ public class OptionalFunctionMethods
 
     // ----ifPresent----
     // syn : opt.ifPresent(value -> {....})
+    System.out.println("-----ifPresent example-------");
      opt.ifPresent((val) -> System.out.println("value  :"+ val));
 
 
     
     // -----ifPresentOrElse()---
      // SYN: opt.ifPresentOrElse(value -> {....},()->{....})
-    opt.ifPresentOrElse((val) -> System.out.println("value " +val),() -> System.out.println("value is not present"));
+      System.out.println("-----ifPresentOrElse example-------");
+      opt.ifPresentOrElse((val) -> System.out.println("value " +val),() -> System.out.println("value is not present"));
+
+      System.out.println("-----ifPresentOrElse example with empty-------");
+      emptyopt.ifPresentOrElse(val -> System.out.println("value " + val), () -> System.out.println("value is not present"));
 
 
     // -----or() ----
     // SYN : opt.or(()-> optional.of(fallback));
+    System.out.println("-----or example-------");
     Optional<String> empty = Optional.empty();
-    Optional<String> Noempty = Optional.of("Java");
+    Optional<String> Nonempty = Optional.of("Java");
 
     String result = empty.or(()-> Optional.of("fallback"))
                                           .get();
-
+    System.out.println("when fall back is used");
     System.out.println("result :"+ result);
 
-    String result2 = Noempty.or(()-> Optional.of("fallback")).get();
-
+    String result2 = Nonempty.or(()-> Optional.of("fallback")).get();
+    System.out.println("when fall back is not used");
     System.out.println("result2 :"+ result2);
 
     // Real world example
@@ -77,6 +103,7 @@ public class OptionalFunctionMethods
 
     // -----stream() ----
     // SYN : opt.stream()
+    System.out.println("-----stream example-------");
     Optional <String> opt1 = Optional.of("java");
 
     opt1.stream().forEach(System.out::println);
