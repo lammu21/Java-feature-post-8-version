@@ -85,3 +85,44 @@ Answer: Methods like findFirst(), findAny(), min(), max() return Optional, and c
 10.	Can LocalDateTime store timezone information? Why or why not?
     Answer : No,it only stores date and time without timezone information 
              DateTimeZoned class is used to store date, time along with timezone information.
+
+ ---------------------------Java 8 Interface Important interview Question ---------------------------
+
+11. Why were default methods introduced in Java 8?
+    Answer : To allow adding new methods to interfaces without breaking existing 
+             implemented classes of the interface, even if they do not implement the new methods.
+
+2.	Difference between abstract method and default method?
+    Answer : Abstract method has no body in the interface and must be implemented by the implemented class.
+             default method has a body in the interface and provides a default implementation that can be
+             overridden by the implemented class if needed.
+
+
+3.	Can you override default methods in implementing class? 
+     Answer :Yes ✅
+
+4.	Can interface static methods be inherited by implementing class? 
+    Answer : No ❌
+
+5.	Why were private methods added in Java 9 interfaces?
+    Answer : to allow code reuseability within the interface itself and to avoid code 
+              duplication of code which is used in multiple default or static methods.
+
+6.	Give real-world examples of default methods in JDK (e.g., Iterable.forEach(), List.sort()).
+     Answer : Iterable.forEach() allows iteration over elements using a lambda expression.
+              List.sort() provides a default sorting mechanism for lists.
+7.	What happens if two interfaces have same default method? (Diamond Problem → must override in class).
+    Answer : if class implements two interfaces having same default method 
+             then class must override the method to resolve the conflict.
+             
+             example : 
+                interface A { default void show() { System.out.println("A"); } }
+                interface B { default void show() { System.out.println("B"); } }
+                class C implements A, B {
+
+                    @Override
+                    public void show() {
+                        A.super.show(); // or B.super.show();
+                    }
+                }   
+  
