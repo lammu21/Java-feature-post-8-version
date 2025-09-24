@@ -1,0 +1,95 @@
+ARUN INTERVIEW QUESTIONS
+
+1.Question : what is Spring constant pool?
+Answer : String Constant pool is special dedicated memory space inside java heap,where string literals get stored
+
+2 .Method overloading and overriding practical scenerios. 
+Answer : overloading compile-time, same method name with different number of parameters
+         overriding
+3.Exception handling in method overriding case(parent and child exceptions). 
+Answer : if a checked exception declared in parent class,
+          Child class can declare same exception or 
+          exception which should be of subclass 
+          Declare no exception
+4.@Qualifier and @autowired annotations
+   @Qualifier will help in determining which class object needs to be Created 
+   when there multiple beans of same type exist.
+   @Autowired will inject bean/object automatically..
+ 
+5.Dependency Injection and ioc.
+  Dependency Injection : instead of class creating its Dependencies,
+                         they are injected externally via Construct,Field,Setter..
+  Inversion of Control : Creating & managing objects taken care by spring instead of Developer,
+                         known as IOC
+
+
+6 Java 8 streams coding question using filter, map and flat map concept. 
+   stream.filter : it gives elements , only if the condition on filter is true  
+   stream.map : Transform each element to another form 
+   stream.flatMap : Transform elements and gives flatten nested structure singe stream
+   Example : 
+        List <String> name = Arrays.asList("java","Springboot","SpringFram","SpringSecurity").
+        name.stream()
+            .filter(n -> n.startwith("s")
+            .map(String : : toUpperCase())
+            .forEach(System.out::println);
+
+        name.stream()
+            .filter(n->n.startWith("S")
+            .flatMap(String :: toLowerCase())
+            .forEach(System.out.println);
+
+
+7. Coding question to print the frequency of characters in a string. 
+    Map <Character,Integer> ans = new Map<>();
+
+    for(Char x : input.toCharArray())
+    {
+      if(x !=" "){
+      res.put(x,ans.getOrDefault(x,0)+1)
+      }
+
+    }
+
+    for(Map.Entry(characters,Integer) : ans.entrySet())
+    {
+     sysout(entrySet.getKey() + "->" entrySet.getValue());
+    }
+
+8. Spring Security implementation. 
+   Spring Security provides 
+   authentication : who are you ?
+   authorization : what you can do ?
+
+   Commonly used Securing REST API are 
+     1.UserDetailsService 
+     2.JWT tokens
+     3.OAuth. 
+
+
+9 .Advantages of microservices over Monolithic. 
+   1. flexibility to have it's own techstack for a service.
+   2. Independent deployment and scaling
+   3.fault isolation 
+   4.faster development with paralle teams
+
+10. API Gateway concept. 
+    API gateway acts as single entry point for a client request.
+    it will route requests to respective microservice based on loadbalancing,
+    it will take care authentication and logging between microservices
+
+  
+11. How do you handle if one microservice goes down.
+    Fallback Method : will return cacched or Default data, when a service is down.
+    Load balancer & Service Discovery : will route request to another instance of that service if exist.
+    retries with backoff : will configure on retries with limited number with delay.
+    Circuit breaker : prevent repeated calls for failed service gives back fallback response
+
+ 
+12. Sql query to print employee with second highest salary . 
+    SELECT * FROM employee where salary = 
+      (Select Max(Salary) from employee 
+      where salary < (Select Max (salary) from employee ))
+ 
+SQL query to print highest salary of employee from each dept.
+   SELECT max(salary) from employee groupby dept_id;

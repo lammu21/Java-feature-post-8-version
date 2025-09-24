@@ -1,0 +1,128 @@
+---------------------------Optional Important interveiw Question ---------------------------
+
+What is the Optional class in Java 8?
+Answer: Optional is a container object which may or may not contain a value. It helps to avoid NullPointerExceptions by providing a way to check presence or absence of a value before accessing it.	TCS, Infosys	2024, 2025
+
+Why was Optional introduced in Java 8?
+Answer: Optional was introduced to reduce null pointer exceptions and provide better APIs for handling missing (null) values in a more functional style.	Cognizant, Capgemini	2024, 2025
+
+How do you create an Optional instance?
+Answer: Use Optional.of(value) for non-null, Optional.ofNullable(value) for nullable values, and Optional.empty() for no value.	Infosys, HCL	2024, 2025
+
+Difference between Optional.of() and Optional.ofNullable()?
+Answer: Optional.of() throws NullPointerException if value is null; Optional.ofNullable() can handle null and returns an Optional.empty() if value is null.	Accenture	2025
+
+How does Optional help avoid NullPointerException?
+Answer: Optional forces the developer to explicitly check for value presence before accessing it, thus reducing the chance of null pointer exceptions.	TCS	2024
+
+Explain key methods of Optional.
+Answer: Some methods are isPresent(), get(), orElse(), orElseGet(), orElseThrow(), filter(), map(), flatMap().	Cognizant, Persistent	2025
+
+Show a use-case for Optional in real-world code.
+Answer: <code>Optional<String> name = Optional.ofNullable(getName()); if (name.isPresent()) { ... }</code> This pattern avoids null checks and NullPointerExceptions.	Capgemini, Infosys	2025
+
+What is the use of 'orElse', 'orElseGet', and 'orElseThrow' in Optional?
+Answer: 'orElse' returns the value or a default, 'orElseGet' gets value or supplies one, 'orElseThrow' throws exception if value is absent.	Cognizant	2025
+
+Pitfalls/Disadvantages of Optional usage?
+Answer: Overuse makes code complex; calling get() without isPresent() can still cause exceptions.	Infosys	2024
+
+How is Optional used with Stream API?
+
+Answer: Methods like findFirst(), findAny(), min(), max() return Optional, and can be chained with map, filter, flatMap functions.	HCL, TCS	2024, 2025
+
+
+---------------------------DateTime Important interveiw Question ---------------------------
+
+1. Why java.time introduced in Java 8 ?
+
+    Answer : to Standardize the date and time API and to OverCome the flaws of previous date and time classes
+    (java.util.Date,java.util.Calendar,java.text.SimpleDateFormat) like like mutability,thread safety,poor API design etc.
+
+2. Difference between LocalDate, LocalTime, and LocalDateTime?
+   Answer : LocalDate represents a date without time, (Year Month Date) example : 2023-10-05
+            LocalTime represents a time without date,(Hour,Minute,Second,Nanosecond) example : 14:30:00
+            LocalDateTime represents both date and time (Year, Month , date,hours,minutes,seconds,nanoseconds)
+            example : 2023-10-05T14:30:00
+
+3.	What is Instant used for?
+    Answer : Instant respresents a specific moment on the timeline in UTC (Coordinated unviersal time )
+             It is used for timestamps and is suitable for storing in databases.
+             example : 2023-10-05T14:30:00Z (Z indicates UTC time zone).
+
+4.	Difference between Period and Duration?
+    Answer : Periods respresents a date based amount of time in terms of years, months,days
+                example : Period.ofDays(10),Period.ofMonths(2)
+             Durations represents a time based amount of time in terms of hours,minutes,seconds,nanoseconds
+                example : Duration.ofHours(5),Duration.ofMinutes(30)
+
+5.	How do you convert Instant to LocalDateTime in a specific timezone?
+    Answer : Use LocalDatTime ofInstant() method along with ZoneId
+             example : LocalDateTime idt =LocalDateTime.ofInstant(instant,ZoneId.systemDefault());
+
+6.	How do you format and parse dates using DateTimeFormatter?
+    Answer : Use DateTimeFormatter class to define a pattern and
+              example : DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+              then use format() method to format and parse() to parse strings to date objects.
+              example : String formattedDate = LocalDate.now().format(formatter);
+                        LocalDate parsedDate = LocalDate.parse("05-10-2023",formatter);
+
+7.	Why is the new Date-Time API immutable and thread-safe?
+     Answer : immutabllity of date-time objects ensures once created they cannot be modified,
+              this prevents accidental changes and makes them inherently thread-safe.
+
+8.	How would you calculate age from a given birthdate? 
+    Answer : User Period.between() method to calculate the Difference between two Localdate instances 
+             example : LocalDate birthdate = LocalDate.of(1990, Month.JANUARY,1);
+                       LocalDate currentDate = LocalDate.now();
+                       Period age = Period.between(birthdate,currentDate);          
+
+9.	What is the difference between ZoneId and ZoneOffset?
+    Answer : ZoneId represents a time zone region like "America/Newyork" which include daysaving rules 
+             ZoneOffset represents a fixed offset from UTC like +2:00 or -5:00
+
+
+10.	Can LocalDateTime store timezone information? Why or why not?
+    Answer : No,it only stores date and time without timezone information 
+             DateTimeZoned class is used to store date, time along with timezone information.
+
+ ---------------------------Java 8 Interface Important interview Question ---------------------------
+
+11. Why were default methods introduced in Java 8?
+    Answer : To allow adding new methods to interfaces without breaking existing 
+             implemented classes of the interface, even if they do not implement the new methods.
+
+2.	Difference between abstract method and default method?
+    Answer : Abstract method has no body in the interface and must be implemented by the implemented class.
+             default method has a body in the interface and provides a default implementation that can be
+             overridden by the implemented class if needed.
+
+
+3.	Can you override default methods in implementing class? 
+     Answer :Yes ✅
+
+4.	Can interface static methods be inherited by implementing class? 
+    Answer : No ❌
+
+5.	Why were private methods added in Java 9 interfaces?
+    Answer : to allow code reuseability within the interface itself and to avoid code 
+              duplication of code which is used in multiple default or static methods.
+
+6.	Give real-world examples of default methods in JDK (e.g., Iterable.forEach(), List.sort()).
+     Answer : Iterable.forEach() allows iteration over elements using a lambda expression.
+              List.sort() provides a default sorting mechanism for lists.
+7.	What happens if two interfaces have same default method? (Diamond Problem → must override in class).
+    Answer : if class implements two interfaces having same default method 
+             then class must override the method to resolve the conflict.
+             
+             example : 
+                interface A { default void show() { System.out.println("A"); } }
+                interface B { default void show() { System.out.println("B"); } }
+                class C implements A, B {
+
+                    @Override
+                    public void show() {
+                        A.super.show(); // or B.super.show();
+                    }
+                }   
+  
