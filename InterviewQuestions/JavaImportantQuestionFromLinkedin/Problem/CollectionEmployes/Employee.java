@@ -1,4 +1,4 @@
-package InterviewQuestions.Stream.Problem.CollectionEmployes ;
+package InterviewQuestions.JavaImportantQuestionFromLinkedin.Problem.CollectionEmployes ;
 
 public class Employee {
     int id;

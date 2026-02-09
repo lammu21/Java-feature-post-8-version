@@ -1,4 +1,4 @@
-package InterviewQuestions.Stream;
+package Stream;
 import java.util.*;
 import java.util.stream.Stream;
 

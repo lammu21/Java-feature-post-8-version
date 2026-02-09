@@ -1,4 +1,4 @@
-package InterviewQuestions.Stream.Problem.CollectionEmployes;
+package InterviewQuestions.JavaImportantQuestionFromLinkedin.Problem.CollectionEmployes;
 
 import java.util.Comparator;
 import java.util.List;
