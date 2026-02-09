@@ -1,4 +1,4 @@
-package Stream.Problem.CollectionEmployes;
+package InterviewQuestions.Stream.Problem.CollectionEmployes;
 
 import java.util.Comparator;
 import java.util.List;

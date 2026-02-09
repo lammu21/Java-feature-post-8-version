@@ -1,4 +1,4 @@
-package Stream.Problem.CollectionEmployes ;
+package InterviewQuestions.Stream.Problem.CollectionEmployes ;
 
 public class Employee {
     int id;

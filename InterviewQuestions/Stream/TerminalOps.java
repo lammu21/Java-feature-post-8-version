@@ -1,4 +1,4 @@
-package Stream;
+package InterviewQuestions.Stream;
 
 import java.util.Arrays;
 import java.util.List;

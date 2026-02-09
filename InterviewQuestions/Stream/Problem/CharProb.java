@@ -1,4 +1,4 @@
-package Stream.Problem;
+package InterviewQuestions.Stream.Problem;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -69,10 +69,6 @@ public class CharProb {
        System.out.println(longestword);
 
     //    Comparator
-
-    
-
-
-    }
+ }
     
 }
