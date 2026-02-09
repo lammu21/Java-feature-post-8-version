@@ -25,7 +25,7 @@ interface B
 public class LambdaBasics {
     public static void main(String[] args) 
     {
-        A obj  = () ->System.out.println("In Show ");
+        A obj  = () -> System.out.println("In Show ");
 
         obj.show();
 

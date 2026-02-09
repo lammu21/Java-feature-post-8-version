@@ -1,35 +1,46 @@
 ---------------------------Optional Important interveiw Question ---------------------------
 
 What is the Optional class in Java 8?
-Answer: Optional is a container object which may or may not contain a value. It helps to avoid NullPointerExceptions by providing a way to check presence or absence of a value before accessing it.	TCS, Infosys	2024, 2025
+Answer: Optional is a container object which may or may not contain a value. It helps to avoid NullPointerExceptions 
+by providing a way to check presence or absence of a value before accessing it.	TCS, Infosys	2024, 2025
 
 Why was Optional introduced in Java 8?
-Answer: Optional was introduced to reduce null pointer exceptions and provide better APIs for handling missing (null) values in a more functional style.	Cognizant, Capgemini	2024, 2025
+Answer: Optional was introduced to reduce null pointer exceptions and provide better APIs for handling missing (null) 
+values in a more functional style.	Cognizant, Capgemini	2024, 2025
 
 How do you create an Optional instance?
-Answer: Use Optional.of(value) for non-null, Optional.ofNullable(value) for nullable values, and Optional.empty() for no value.	Infosys, HCL	2024, 2025
+Answer: Use Optional.of(value) for non-null, Optional.ofNullable(value) for nullable values, and 
+Optional.empty() for no value.	Infosys, HCL	2024, 2025
 
 Difference between Optional.of() and Optional.ofNullable()?
-Answer: Optional.of() throws NullPointerException if value is null; Optional.ofNullable() can handle null and returns an Optional.empty() if value is null.	Accenture	2025
+Answer: Optional.of() throws NullPointerException if value is null; Optional.ofNullable() can handle null
+ and returns an Optional.empty() if value is null.	Accenture	2025
 
 How does Optional help avoid NullPointerException?
-Answer: Optional forces the developer to explicitly check for value presence before accessing it, thus reducing the chance of null pointer exceptions.	TCS	2024
+Answer: Optional forces the developer to explicitly check for value presence before accessing it,
+ thus reducing the chance of null pointer exceptions.	TCS	2024
 
 Explain key methods of Optional.
-Answer: Some methods are isPresent(), get(), orElse(), orElseGet(), orElseThrow(), filter(), map(), flatMap().	Cognizant, Persistent	2025
+Answer: Some methods are isPresent(), get(), orElse(), orElseGet(), orElseThrow(), filter(), 
+map(), flatMap().	Cognizant, Persistent	2025
 
 Show a use-case for Optional in real-world code.
-Answer: <code>Optional<String> name = Optional.ofNullable(getName()); if (name.isPresent()) { ... }</code> This pattern avoids null checks and NullPointerExceptions.	Capgemini, Infosys	2025
+Answer: <code>Optional<String> name = Optional.ofNullable(getName());
+ if (name.isPresent()) { ... }
+</code> 
+This pattern avoids null checks and NullPointerExceptions.	Capgemini, Infosys	2025
 
 What is the use of 'orElse', 'orElseGet', and 'orElseThrow' in Optional?
-Answer: 'orElse' returns the value or a default, 'orElseGet' gets value or supplies one, 'orElseThrow' throws exception if value is absent.	Cognizant	2025
+Answer: 'orElse' returns the value or a default, 'orElseGet' gets value or supplies one, 'orElseThrow' 
+throws exception if value is absent.	Cognizant	2025
 
 Pitfalls/Disadvantages of Optional usage?
 Answer: Overuse makes code complex; calling get() without isPresent() can still cause exceptions.	Infosys	2024
 
 How is Optional used with Stream API?
 
-Answer: Methods like findFirst(), findAny(), min(), max() return Optional, and can be chained with map, filter, flatMap functions.	HCL, TCS	2024, 2025
+Answer: Methods like findFirst(), findAny(), min(), max() return Optional, and can be chained with map, 
+filter, flatMap functions.	HCL, TCS	2024, 2025
 
 
 ---------------------------DateTime Important interveiw Question ---------------------------
@@ -111,6 +122,8 @@ Answer: Methods like findFirst(), findAny(), min(), max() return Optional, and c
 6.	Give real-world examples of default methods in JDK (e.g., Iterable.forEach(), List.sort()).
      Answer : Iterable.forEach() allows iteration over elements using a lambda expression.
               List.sort() provides a default sorting mechanism for lists.
+
+              
 7.	What happens if two interfaces have same default method? (Diamond Problem → must override in class).
     Answer : if class implements two interfaces having same default method 
              then class must override the method to resolve the conflict.

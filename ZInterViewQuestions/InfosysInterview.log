@@ -1,16 +1,19 @@
 ARUN INTERVIEW QUESTIONS
 
 1.Question : what is Spring constant pool?
-Answer : String Constant pool is special dedicated memory space inside java heap,where string literals get stored
+Answer : String Constant pool is special dedicated memory space inside java heap,
+where string literals get stored
 
 2 .Method overloading and overriding practical scenerios. 
 Answer : overloading compile-time, same method name with different number of parameters
-         overriding
+         overriding : run-time same method name in subclass
+
 3.Exception handling in method overriding case(parent and child exceptions). 
 Answer : if a checked exception declared in parent class,
           Child class can declare same exception or 
           exception which should be of subclass 
           Declare no exception
+
 4.@Qualifier and @autowired annotations
    @Qualifier will help in determining which class object needs to be Created 
    when there multiple beans of same type exist.
@@ -26,7 +29,7 @@ Answer : if a checked exception declared in parent class,
 6 Java 8 streams coding question using filter, map and flat map concept. 
    stream.filter : it gives elements , only if the condition on filter is true  
    stream.map : Transform each element to another form 
-   stream.flatMap : Transform elements and gives flatten nested structure singe stream
+   stream.flatMap : Transform elements and gives flatten nested structure single stream
    Example : 
         List <String> name = Arrays.asList("java","Springboot","SpringFram","SpringSecurity").
         name.stream()
@@ -70,8 +73,10 @@ Answer : if a checked exception declared in parent class,
 9 .Advantages of microservices over Monolithic. 
    1. flexibility to have it's own techstack for a service.
    2. Independent deployment and scaling
-   3.fault isolation 
-   4.faster development with paralle teams
+   3. fault isolation 
+   4. faster development with paralle teams
+
+
 
 10. API Gateway concept. 
     API gateway acts as single entry point for a client request.
@@ -80,10 +85,11 @@ Answer : if a checked exception declared in parent class,
 
   
 11. How do you handle if one microservice goes down.
+    Circuit breaker : prevent repeated calls for failed service gives back fallback response
     Fallback Method : will return cacched or Default data, when a service is down.
     Load balancer & Service Discovery : will route request to another instance of that service if exist.
     retries with backoff : will configure on retries with limited number with delay.
-    Circuit breaker : prevent repeated calls for failed service gives back fallback response
+    
 
  
 12. Sql query to print employee with second highest salary . 
@@ -91,5 +97,127 @@ Answer : if a checked exception declared in parent class,
       (Select Max(Salary) from employee 
       where salary < (Select Max (salary) from employee ))
  
-SQL query to print highest salary of employee from each dept.
+13 .SQL query to print highest salary of employee from each dept.
    SELECT max(salary) from employee groupby dept_id;
+
+--------------------------perplexity Interview Questions ---------------------------
+Java Interview Questions at Infosys
+
+
+What is OOP and what are its advantages?
+
+ 1. encapsulation (security)
+ 2.polymorpism (flexibility)
+ 3.abstract (simplicity)
+ 4.inheritance (code reusability)
+
+Explain why strings are immutable in Java.
+ 1. Security
+ 2. caching
+ 3. thread safe
+
+Which classes support mutable strings?
+ 1. StringBuffer (thread safe, sycronised)
+ 2. StringBuilder (not sycronised , faster )
+
+Differences between String and StringBuffer.
+ 1. String : immutable, thread safe
+ 2. StringBuffer : mutable , ThreadSafe
+
+Difference between Array and List; classes implemented using them.
+1. array : Fixed size,faster and can have primitive or object
+2.list : dynamic size, slower, can have only objects
+
+Differences among List, Set, and Map.
+1. list : ordered, duplicates allowed 
+2. Set : unordered ,duplicates not allowed
+3. Map : key value pair, key are duplicates not allowed
+
+
+What is WeakHashMap?
+-> maps with weakly reference key will be collected by java GC 
+ example :
+  Map <Object,String> map = new WeakHashMap<>();
+  Object key = new Object();
+  map.put(key,"john");
+  key = null;
+
+  System.gc();
+
+
+
+What types of inheritance does Java support?
+ 1. Single level inheritance -> parent -> child class
+ 2. multiple level : grandparent -> parent -> child class
+ 3. multiple inheritance via interface 
+     interface a{}
+     interface b{}
+     class implements a,b{}
+ 4. hybrid inheritance via interface 
+    i
+    interface a {}
+    class b {}
+    class c extends b implements a{}
+ 5. hierarchical 
+    class a {}
+    class b extends a{}
+    class c extends a{}
+ 
+
+What entity relationships are supported in Java (e.g., one-to-one)?
+ 1. one
+
+Does Java 8 support multiple interfaces?
+
+Can you define a method inside an interface?
+
+Explain static overloading and dynamic overloading.
+
+Spring Boot Interview Questions
+What is Spring Boot and what are its advantages?
+
+What is Spring Boot Actuator and what features does it provide?
+
+Difference between .yml and .properties configuration files.
+
+What is IoC (Inversion of Control) Container?
+
+Explain dependency injection.
+
+What annotations are commonly used in Spring Boot?
+
+What are the uses of property files in Java/Spring Boot?
+
+Different ways to create a Spring Boot project.
+
+Does Spring provide thread safety for beans?
+
+Microservices Interview Questions
+What is a microservice? Can you define microservices in the context of Spring Boot?
+
+Key features of Spring Boot that support microservices development.
+
+Common challenges when migrating from monolithic to microservices architecture.
+
+What is the Circuit Breaker pattern? Have you used it?
+
+How do you handle distributed transactions between microservices?
+
+Role of API Gateways in Spring Boot microservices.
+
+Importance of centralized configuration management in microservices.
+
+How to design resilient microservices to handle failures gracefully.
+
+What is Eureka, and what role does it play in microservices architecture?
+
+Explain service health checks in Eureka.
+
+Additional Technical Areas (MySQL, Angular, JavaScript, Git)
+MySQL constraints: how to add constraints, explain DML operations, composite keys, foreign keys, joins, stored procedures.
+
+Angular basics: advantages, directory structure, routing, pipes.
+
+JavaScript basics: closure, browser compatibility.
+
+Git basics: what is Git, common commands, branching syntax.
